@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<title>Assignment</title>
+	</head>
+	<body>
+		<form action="/search" method="POST">
+			<input type="text" name="search" placeholder="Search Books">
+			<button type = "submit">Submit</button>
+		</form>
+		<form action="/note" method="POST">
+			<input type="text" name="note" placeholder="Note">
+			<button type = "submit">Save Note</button>
+		</form>
+
+		<form action="/retrieval" method="POST">
+			<button type = "submit">Note retrieve</button>
+		</form>
+		{% for i in data %}
+
+		<p>Title: {{i.title}}</p>
+		<p>Author: {{i.author}}</p>
+
+		{%endfor%}
+
+		{% for i in newdata %}
+
+		<p>Note: {{i.Note}}</p>
+		<p>Author: {{i.author}}</p>
+
+		{%endfor%}
+
+
+	</body>
+</html>
