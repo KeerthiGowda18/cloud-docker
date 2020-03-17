@@ -2,7 +2,7 @@ version: '2.0'
 services:
 
   flaskapp:
-    build: ./flaskapp-docker
+    build: ./cloudapp-docker
     ports:
         - "5000:5000"
     network_mode: host
