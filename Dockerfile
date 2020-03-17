@@ -1,11 +1,14 @@
-FROM ubuntu: 16.04
+FROM ubuntu:16.04
 
-RUN apt-get install -y python-setuptools
-RUN easy_install pip
+MAINTAINER keerthi "kr583413@dal.ca"
 
-ADD requirements.txt /src/requirements.txt
-RUN cd /src; pip install -r requirements.txt
-ADD . /src
+RUN apt-get update && \
+    apt-get install -y python-pip python-dev
+
+COPY ./requirments.txt  /app/requirements.txt
+WORKDIR  /app
+RUN  pip install -r requirements.txt
+COPY . /app
 
 Expose 5000
 
