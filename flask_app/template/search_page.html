@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Books Search</title>
+		<style>
+			form.styling button{
+				background-color: #424141;
+ 				border: none;
+  				color: white;
+  				padding: 8px 8px;
+  				text-decoration: none;
+  				margin: 1px 1px;
+  				cursor: pointer;
+			}
+			form.styling input[type=text]{
+ 				border: 1px solid grey;
+  				color: white;
+  				padding: 8px 8px;
+  				text-decoration: none;
+  				margin: 1px 1px;
+			}
+		</style>
+	</head>
+	<body>
+		<h3> Book Title, Author Search Application</h3>
+		<form class = "styling" action="/search" method="POST">
+			<input type="text" name="search" placeholder="Enter the Keyword">
+			<button type = "submit">Submit</button>
+		</form>
+		<form class = "styling" action="/note" method="POST">
+			<input type="text" name="note" placeholder="Enter Note to save">
+			<button type = "submit">Submit</button>
+		</form>
+
+		<form class = "styling" action="/retrieval" method="POST">
+			<button type = "submit">Note retrieval</button>
+		</form>
+
+		{% for i in data %}
+    		{% if loop.index == 1 %}
+        		<p>Author: {{i.author}}</p>
+    		{% endif %}
+    		<p>Title: {{i.title}}</p>
+		{% endfor %}
+
+		{% for i in newdata %}
+    		{% if loop.index == 1 %}
+        		<p>Author: {{i.author}}</p>
+    		{% endif %}
+    		<p>Note: {{i.Note}}</p>
+		{% endfor %}
+
+	</body>
+</html>
